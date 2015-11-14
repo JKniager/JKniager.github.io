@@ -28,6 +28,9 @@ var stars;
 var player;
 var cursors;
 
+var score = 0;
+var scoreText;
+
 function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     
@@ -71,6 +74,8 @@ function create() {
     
     player.frame = 4;
     
+    scoreText = game.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
+    
     cursors = game.input.keyboard.createCursorKeys();
 }
 
@@ -108,6 +113,9 @@ function update() {
 function collectStar(player, star)
 {
     star.kill();
+    
+    score += 10;
+    scoreText.text = 'Score: ' + score;
 }
 
 </script>
