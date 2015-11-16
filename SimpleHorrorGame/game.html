@@ -16,9 +16,13 @@
                     game.load.image('ground', 'assets/Ground.png');
                 }
                 
+                var platforms;
+                
                 function create() {
                     game.add.sprite(0, 0, 'background');
-                    game.add.sprite(0, game.getHeight() - 200, 'ground');
+                    
+                    platforms = game.add.group();
+                    platforms.create(0, game.world.height - 200, 'ground');
                 }
                 
                 function update() {
