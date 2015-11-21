@@ -91,16 +91,18 @@ function update() {
     
     game.physics.arcade.overlap(player, stars, collectStar, null, this);
     
+    player.body.acceleration.x = 0;
+    
     if(cursors.left.isDown)
     {
-        player.body.acceleration.x = -15;
+        player.body.acceleration.x = -50;
         player.animations.play('left');
         if(player.body.velocity.x < -maxSpeed)
             player.body.velocity.x = -maxSpeed;
     }
     else if(cursors.right.isDown)
     {
-        player.body.acceleration.x = 15;
+        player.body.acceleration.x = 50;
         player.animations.play('right');
         if(player.body.velocity.x > maxSpeed)
             player.body.velocity.x = maxSpeed;
